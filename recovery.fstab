@@ -1,0 +1,24 @@
+# Mount point    FStype    Device                                    Flags
+/system          erofs     system                                    display="System";logical;slotselect
+/vendor          erofs     vendor                                    display="Vendor";logical;slotselect
+/product         erofs     product                                   display="Product";logical;slotselect
+/system_ext      erofs     system_ext                                display="System Ext";logical;slotselect
+
+/metadata        ext4      /dev/block/by-name/metadata               display="Metadata";wait
+/data            f2fs      /dev/block/by-name/userdata               display="Data";wait;check
+
+/boot            emmc      /dev/block/by-name/boot                   display="Boot";slotselect;backup=1;flashimg=1
+/vendor_boot     emmc      /dev/block/by-name/vendor_boot            display="Vendor Boot";slotselect;backup=1;flashimg=1
+/dtbo            emmc      /dev/block/by-name/dtbo                   display="Dtbo";backup=1;flashimg=1
+
+/external_sd     vfat      /dev/block/mmcblk1p1 /dev/block/mmcblk1   display="MicroSD";storage;wipeingui;removable
+/usb_otg         vfat      /dev/block/sda1      /dev/block/sda       display="USB-OTG";storage;wipeingui;removable
+
+# أقسام خاصة بـ MediaTek
+/protect_f       ext4      /dev/block/by-name/protect1               display="Protect_F";backup=1
+/protect_s       ext4      /dev/block/by-name/protect2               display="Protect_S";backup=1
+/nvdata          ext4      /dev/block/by-name/nvdata                 display="NvData";backup=1
+/nvram           emmc      /dev/block/by-name/nvram                  display="NvRam";backup=1
+/proinfo         emmc      /dev/block/by-name/proinfo                display="ProInfo";backup=1
+/logo            emmc      /dev/block/by-name/logo                   display="Logo";backup=1;flashimg=1
+/para            emmc      /dev/block/by-name/para                   display="Para/Misc";backup=1
